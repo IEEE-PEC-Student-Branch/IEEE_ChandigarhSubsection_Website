@@ -1,40 +1,11 @@
 .App {
   text-align: center;
   display: flex;
+  flex-direction: column;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+* {
+  box-sizing: border-box;
 }
 
 .navbar {
@@ -43,7 +14,8 @@
   align-items: center;
   justify-content: space-between;
   padding: 0.5rem 1rem;
-  width: 100%;
+  width: 100vw;
+  position: fixed;
 }
 
 .navbar > .container {
@@ -67,17 +39,15 @@
   -webkit-box-direction: normal;
   -ms-flex-direction: row;
   flex-direction: row;
-  padding-left: 0;
-  margin-bottom: 0;
+  flex-basis: 660px;
+  padding: 0;
+  margin: 0;
   list-style: none;
 }
 
 .nav-item > .nav-link {
   font-size: 15px;
-  padding-top: 0.9rem;
-  padding-bottom: 0.9rem;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 0.9rem 20px;
   color: #000000;
   font-weight: 400;
   text-decoration: none;
@@ -98,4 +68,92 @@
   .container > .navbar-nav {
     display: none;
   }
+}
+
+
+/* Hamburger menu css */
+
+#menuToggle
+{
+  display: none;
+  position: relative;  
+  z-index: 1;
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: pointer;
+}
+
+#menuToggle a {
+  text-decoration: none;
+  color: #232323;
+  transition: color 0.3s ease;
+}
+
+#menuToggle span {
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  background: #cdcdcd;
+  border-radius: 3px;
+  z-index: 1;
+}
+
+ .menu-wrapper {
+  height: 0;
+  overflow: hidden;
+  position: fixed;
+  left: 0;
+  width: 100%;
+  background-color: #000000;
+  transition-property: height;
+  transition-duration: .5s;
+ }
+
+ .menu-wrapper.show {
+  height: 21vh;
+ }
+ 
+ #menu {
+   background: #ededed;
+   list-style: none;
+   -webkit-font-smoothing: antialiased;
+   padding: 0 25px;
+ }
+
+ #menu > a {
+  text-align: left;
+  font-size: 15px;
+ }
+ 
+ #menu li
+ {
+   padding: 10px 0;
+ }
+
+@media (max-width: 992px) {
+  .navbar, #menu {
+    background-color: #000000;
+    color: #fff;
+  }
+  #menuToggle {
+    display: block;
+  }
+
+  #menuToggle a {
+    color: #fff;
+  }
+}
+
+section {
+  height: 500px;
+  width: 100%;
+}
+
+.hero-section {
+  background-image: url('./images/bg_1.jpeg');
+  background-position: 50% 0%;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
